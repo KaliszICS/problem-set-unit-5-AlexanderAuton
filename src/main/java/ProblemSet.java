@@ -72,9 +72,9 @@ public class ProblemSet {
         }
 
 
-        String[] uniquePhrase = new String[words.length];
+        String[] uniquePhrases = new String[words.length];
         int[] counts = new int[words.length];
-        int uniqueCount = 0;
+        int uniquesCounted = 0;
 
 
         for (int i = 0; i < words.length; i++) {
@@ -92,17 +92,17 @@ public class ProblemSet {
                 boolean found = false;
 
 
-                for (int j = 0; j < uniqueCount; j++) {
-                    if (word.equals(uniquePhrase[j])) {
-                        count[j]++;
+                for (int j = 0; j < uniquesCounted; j++) {
+                    if (word.equals(uniquePhrases[j])) {
+                        counts[j]++;
                         found = true;
                     }
                 }
 
 
                 if (!found) {
-                    uniqueWords[uniquesCounted] = word;
-                    count[uniquesCounted] = 1;
+                    uniquePhrases[uniquesCounted] = word;
+                    counts[uniquesCounted] = 1;
                     uniquesCounted++;
                 }
             }
@@ -110,16 +110,16 @@ public class ProblemSet {
 
 
         System.out.println("\nTotal Characters: " + characters);
-        System.out.println("Total Words: " + totalWords);
-        System.out.println("Total Vowels: " + vowels);
-        System.out.println("Total Spaces: " + spaces);
+        System.out.println("Total Words: " + uniquesCounted);
+        System.out.println("Total Vowels: " + vowel);
+        System.out.println("Total Spaces: " + space);
 
 
         System.out.println("\nWord Frequency:\n");
 
 
         for (int i = 0; i < uniquesCounted; i++) {
-            System.out.println(uniquePhrase[i] + " - " + counts[i]);
+            System.out.println(uniquePhrases[i] + " - " + counts[i]);
         }
 
 	}
